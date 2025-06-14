@@ -1,0 +1,72 @@
+# English Public Domain Book Checklist
+
+This Python script helps you manage a checklist of English public domain books based on Project Gutenberg’s RDF metadata files. It parses RDF files to find English public domain books and allows you to track which books you have completed (e.g., read, narrated, or reviewed) via simple marking commands.
+
+## Features
+
+- Parses RDF files to extract English-language, public domain books.
+- Builds a CSV checklist with book ID, title, and author.
+- Supports marking books as completed by creating marker files.
+- Shows checklist status with completion indicators.
+- Search books by keyword in title or author.
+
+## Requirements
+
+- Python 3.6+
+- Required packages:
+
+```bash
+pip install tqdm
+
+Usage
+Run commands via terminal:
+python book_checklist.py build
+
+    Builds the checklist CSV by parsing all RDF files.
+
+python book_checklist.py show
+
+    Displays the checklist with completion status:
+      ✅ completed
+      ❌ not completed
+
+python book_checklist.py mark <book_id>
+
+    Marks the book with the specified ID as completed.
+
+python book_checklist.py unmark <book_id>
+
+    Removes the completion mark for the specified book ID.
+
+python book_checklist.py search <keyword>
+
+    Searches books by title or author containing the keyword.
+
+
+File Structure
+checklist_books/ directory contains marker files for completed books, named <book_id>.txt.
+
+english_public_domain_books.csv contains the full checklist with IDs, titles, and authors.
+
+Example
+Mark book ID 12345 as completed:
+
+python book_checklist.py mark 12345
+
+  Show checklist status:
+
+python book_checklist.py show
+
+  Search books with "twain" in title or author:
+
+python book_checklist.py search twain
+
+Notes
+Make sure to run build before using other commands to generate the initial checklist.
+
+RDF files must be extracted in the directory specified by RDF_DIR (D:/Coding Projects/rdf-files/cache/epub by default).
+
+The script filters books by language ("en") and public domain rights.
+
+License
+This project is for educational and personal use. Data is sourced from Project Gutenberg, which freely provides public domain books.
