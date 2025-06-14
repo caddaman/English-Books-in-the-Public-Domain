@@ -1,0 +1,55 @@
+# Gutenberg Public Domain Book Extractor (Simple Version)
+
+This Python script downloads and extracts the Project Gutenberg RDF catalog and parses metadata to identify public domain books published in or before 1927. It's a straightforward tool for those interested in exploring or narrating classic, legally free texts.
+
+## Features
+
+- Downloads and extracts the official RDF metadata archive from Project Gutenberg.
+- Parses each RDF file for book title, author, publication year, and Gutenberg ID.
+- Filters books published in or before 1927 (considered public domain in the U.S.).
+- Saves results to a CSV file.
+
+## Requirements
+
+- Python 3.6+
+- Required packages:
+
+```bash
+pip install pandas
+
+Usage
+Run the script directly from the command line:
+python simple_gutenberg_public_domain.py
+
+The script will:
+
+Download the RDF catalog if not already present.
+
+Extract RDF files if not yet extracted.
+
+Parse metadata from each RDF file.
+
+Filter for public domain books published in or before 1927.
+
+Save results to public_domain_books_full.csv.
+
+Output
+The resulting CSV file contains these columns:
+
+Title: Book title
+
+Author: Author name
+
+Year: Publication year
+
+Gutenberg ID: Project Gutenberg identifier
+
+Notes
+Parsing all RDF files can take several minutes.
+
+The public domain cutoff year is hardcoded as 1927 but can be changed in the script.
+
+The script silently skips any malformed or unreadable RDF files.
+
+License
+This script is for personal and educational use. Data is sourced from Project Gutenberg, which provides public domain books.
